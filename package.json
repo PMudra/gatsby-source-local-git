@@ -2,13 +2,22 @@
   "name": "gatsby-source-local-git",
   "version": "0.1.0",
   "description": "",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-source-plugin",
+    "git"
+  ],
+  "homepage": "https://github.com/PMudra/gatsby-source-local-git#readme",
+  "bugs": "https://github.com/PMudra/gatsby-source-local-git/issues",
+  "repository": "github:PMudra/gatsby-source-local-git",
+  "author": "Philipp Mudra <philipp.mudra@web.de>",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Philipp Mudra <philipp.mudra@web.de>",
-  "license": "MIT",
   "dependencies": {
     "simple-git": "^1.126.0"
   },
