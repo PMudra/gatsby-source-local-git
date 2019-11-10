@@ -14,12 +14,17 @@
   // "appPort": [],
 
   // Uncomment the next line to run commands after the container is created.
-  // "postCreateCommand": "yarn install",
+  "postCreateCommand": "sudo cp -r /root/.ssh-localhost ~ && sudo chown -R $(id -u):$(id -g) ~/.ssh-localhost && mv ~/.ssh-localhost ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*",
 
   // Uncomment the next line to use a non-root user. On Linux, this will prevent
   // new files getting created as root, but you may need to update the USER_UID
   // and USER_GID in .devcontainer/Dockerfile to match your user if not 1000.
-  "runArgs": ["-u", "node"],
+  "runArgs": [
+    "-u",
+    "node",
+    "-v",
+    "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro"
+  ],
 
   // Add the IDs of extensions you want installed when the container is created in the array below.
   "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
