@@ -39,18 +39,18 @@ export const sourceNodes = async ({
         contentDigest: createContentDigest(commit),
       },
     })
+  })
 
-    authorsByAuthorId.forEach((author, id) => {
-      const { commits, ...filteredAuthor } = author
-      createNode({
-        ...filteredAuthor,
-        commits___NODE: commits.map(hash => createNodeId(hash)),
-        id: createNodeId(id),
-        internal: {
-          type: "GitAuthor",
-          contentDigest: createContentDigest(author),
-        },
-      })
+  authorsByAuthorId.forEach((author, id) => {
+    const { commits, ...filteredAuthor } = author
+    createNode({
+      ...filteredAuthor,
+      commits___NODE: commits.map(hash => createNodeId(hash)),
+      id: createNodeId(id),
+      internal: {
+        type: "GitAuthor",
+        contentDigest: createContentDigest(author),
+      },
     })
   })
 }
