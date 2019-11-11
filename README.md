@@ -27,34 +27,53 @@ module.exports = {
 
 ## How to query for data
 
+### Commits
+
 You can query commit nodes like the following:
 
 ```graphql
 {
-  allGitCommit {
+  allGitCommit(limit: 25, sort: { fields: date, order: DESC }) {
     edges {
       node {
         hash
         message
         body
         date(fromNow: true)
+        refs
+        author {
+          name
+          email
+        }
       }
     }
+    totalCount
   }
 }
 ```
 
-You can query auhtor nodes like the following:
+Query hash of latest commit:
 
 ```graphql
 {
-  allGitAuthor {
-    edges {
-      node {
-        name
-        email
-      }
+  gitCommit(latest: { eq: true }) {
+    hash
+  }
+}
+```
+
+### Authors
+
+You can query author nodes like the following:
+
+```graphql
+{
+  allGitAuthor(sort: { fields: name }) {
+    nodes {
+      name
+      email
     }
+    totalCount
   }
 }
 ```
