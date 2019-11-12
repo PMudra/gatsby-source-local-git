@@ -1,32 +1,14 @@
 import { SourceNodesArgs, GatsbyNode, NodeInput } from "gatsby"
 import { getCommits, Commit, Author } from "./git"
 
-const identity = (value: any) => value
-
 interface Node {
   id: string
 }
 
-interface PreprocessNodeHelpers {
+interface PrepareNodeHelpers {
+  createContentDigest: SourceNodesArgs["createContentDigest"]
   createNodeId: SourceNodesArgs["createNodeId"]
 }
-
-interface PrepareNodeHelpers extends PreprocessNodeHelpers {
-  createContentDigest: SourceNodesArgs["createContentDigest"]
-}
-
-interface CreateNodeHelpers extends PrepareNodeHelpers {
-  createNode: SourceNodesArgs["actions"]["createNode"]
-}
-
-interface PreprocessNode<T extends Node> {
-  (node: T, helpers: PreprocessNodeHelpers): T
-}
-
-// interface PrepareNode {
-//   <T extends Node>(node: T, type: string, helpers: PrepareNodeHelpers): T &
-//     NodeInput
-// }
 
 const prepareNode = <T extends Node>(
   node: T,
@@ -41,26 +23,31 @@ const prepareNode = <T extends Node>(
   },
 })
 
-const createNode = <T extends Node>(
-  node: T,
-  type: string,
-  { createNode, ...helpers }: CreateNodeHelpers,
-  preProcessor: PreprocessNode<T> = identity
-) => createNode(prepareNode(preProcessor(node, helpers), type, helpers))
+interface CreateNodeFactoryHelpers extends PrepareNodeHelpers {
+  createNode: SourceNodesArgs["actions"]["createNode"]
+}
+
+const identity = (value: any) => value
 
 const createNodeFactory = <T extends Node>(
-  helpers: CreateNodeHelpers,
   type: string,
-  prepareNode: PrepareNode,
-  preProcessor: PreprocessNode<T>
-) => (node: T) => {}
+  { createNode, ...helpers }: CreateNodeFactoryHelpers,
+  preprocessNode: (node: T, helpers: PrepareNodeHelpers) => T = identity
+) => (node: T) =>
+  createNode(prepareNode(preprocessNode(node, helpers), type, helpers))
 
-// const createCommitNodeFactory = createNodeFactory<Commit>("GitCommit")
+const sourceNodes: GatsbyNode["sourceNodes"] = async ({
+  createContentDigest,
+  createNodeId,
+  actions: { createNode },
+}: SourceNodesArgs) => {
+  const helpers: CreateNodeFactoryHelpers = {
+    createNode,
+    createNodeId,
+    createContentDigest,
+  }
 
-const sourceNodes: GatsbyNode["sourceNodes"] = async (
-  args: SourceNodesArgs
-) => {
-  const createCommitNode = createCommitNodeFactory(args)
+  const createCommitNode = createNodeFactory<Commit>("GitCommit", helpers)
 
   const commits = await getCommits()
 
