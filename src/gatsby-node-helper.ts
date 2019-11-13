@@ -1,18 +1,13 @@
-import { SourceNodesArgs } from "gatsby"
+import { NodePluginArgs } from "gatsby"
 
 interface Node {
   id: string
 }
 
-interface PrepareNodeHelpers {
-  createContentDigest: SourceNodesArgs["createContentDigest"]
-  createNodeId: SourceNodesArgs["createNodeId"]
-}
-
 const prepareNode = <T extends Node>(
   node: T,
   type: string,
-  { createNodeId, createContentDigest }: PrepareNodeHelpers
+  { createNodeId, createContentDigest }: NodePluginArgs
 ) => ({
   ...node,
   id: createNodeId(node.id),
@@ -22,17 +17,13 @@ const prepareNode = <T extends Node>(
   },
 })
 
-interface CreateNodeFactoryHelpers extends PrepareNodeHelpers {
-  createNode: SourceNodesArgs["actions"]["createNode"]
-}
-
-const identity = (value: any) => value
+const identity = <T>(value: T) => value
 
 const createNodeFactory = <T extends Node>(
   type: string,
-  { createNode, ...helpers }: CreateNodeFactoryHelpers,
-  preprocessNode: (node: T, helpers: PrepareNodeHelpers) => Node = identity
+  helpers: NodePluginArgs,
+  preprocessNode: (node: T, helpers: NodePluginArgs) => Node = identity
 ) => (node: T) =>
-  createNode(prepareNode(preprocessNode(node, helpers), type, helpers))
+  helpers.actions.createNode(prepareNode(preprocessNode(node, helpers), type, helpers))
 
 export { createNodeFactory }

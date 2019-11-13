@@ -3,13 +3,8 @@ import { getCommits, Commit, Author } from "./git"
 import { createNodeFactory } from "./gatsby-node-helper"
 
 const sourceNodes: GatsbyNode["sourceNodes"] = async (
-  sourceNodesArgs: SourceNodesArgs
+  helpers: SourceNodesArgs
 ) => {
-  const helpers = {
-    ...sourceNodesArgs,
-    createNode: sourceNodesArgs.actions.createNode,
-  }
-
   const createCommitNode = createNodeFactory<Commit>(
     "GitCommit",
     helpers,
