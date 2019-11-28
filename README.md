@@ -66,6 +66,34 @@ Query hash of latest commit:
 }
 ```
 
+### Tags
+
+You can query tags like this:
+
+```graphql
+{
+  allGitTag {
+    edges {
+      node {
+        name
+      }
+    }
+  }
+}
+```
+
+Query the latest tag:
+
+```graphql
+{
+  gitTag(latest: { eq: true }) {
+    name
+  }
+}
+```
+
+Tags will simply be sorted by semantic version number to find the latest tag (including every tag containing a dot like `v1.2.3` or `1.2` but not `newest-feature`).
+
 ### Authors
 
 You can query author nodes like the following:
