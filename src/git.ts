@@ -18,6 +18,12 @@ interface Commit {
   author: Author
 }
 
+interface Tag {
+  id: string
+  name: string
+  latest: boolean
+}
+
 const createAuthor = (name: string, email: string): Author => ({
   name,
   email,
@@ -40,4 +46,14 @@ const getCommits = async (): Promise<Commit[]> => {
   }))
 }
 
-export { getCommits, Author, Commit }
+const getTags = async (): Promise<Tag[]> => {
+  const { all, latest } = await git().tags()
+
+  return all.map(name => ({
+    name,
+    id: name,
+    latest: name === latest,
+  }))
+}
+
+export { getCommits, getTags, Author, Commit, Tag }
