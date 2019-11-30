@@ -24,6 +24,13 @@ interface Tag {
   latest: boolean
 }
 
+interface Branch {
+  id: string
+  name: string
+  commit: string
+  current: boolean
+}
+
 const createAuthor = (name: string, email: string): Author => ({
   name,
   email,
@@ -56,4 +63,15 @@ const getTags = async (): Promise<Tag[]> => {
   }))
 }
 
-export { getCommits, getTags, Author, Commit, Tag }
+const getBranches = async (): Promise<Branch[]> => {
+  const { branches } = await git().branch(["-v", "-a"])
+
+  return Object.values(branches).map(({ name, commit, current }) => ({
+    name,
+    commit,
+    current: !!current,
+    id: name,
+  }))
+}
+
+export { getCommits, getTags, getBranches, Author, Commit, Tag, Branch }

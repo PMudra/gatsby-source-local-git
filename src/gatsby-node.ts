@@ -1,5 +1,13 @@
 import { SourceNodesArgs, GatsbyNode } from "gatsby"
-import { getCommits, getTags, Commit, Author, Tag } from "./git"
+import {
+  getCommits,
+  getTags,
+  getBranches,
+  Commit,
+  Author,
+  Tag,
+  Branch,
+} from "./git"
 import { createNodeFactory } from "./gatsby-node-helper"
 
 const sourceNodes: GatsbyNode["sourceNodes"] = async (
@@ -24,6 +32,10 @@ const sourceNodes: GatsbyNode["sourceNodes"] = async (
   const createTagNode = createNodeFactory<Tag>("GitTag", helpers)
   const tags = await getTags()
   tags.forEach(tag => createTagNode(tag))
+
+  const createBranchNode = createNodeFactory<Branch>("GitBranch", helpers)
+  const branches = await getBranches()
+  branches.forEach(branch => createBranchNode(branch))
 }
 
 export { sourceNodes }

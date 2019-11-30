@@ -94,6 +94,35 @@ Query the latest tag:
 
 Tags will simply be sorted by semantic version number to find the latest tag (including every tag containing a dot like `v1.2.3` or `1.2` but not `newest-feature`).
 
+### Branches
+
+You can query branches like this:
+
+```graphql
+{
+  allGitBranch {
+    edges {
+      node {
+        commit
+        id
+        name
+        current
+      }
+    }
+  }
+}
+```
+
+Query the current branch:
+
+```graphql
+{
+  gitBranch(current: { eq: true }) {
+    name
+  }
+}
+```
+
 ### Authors
 
 You can query author nodes like the following:
