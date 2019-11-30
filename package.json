@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-local-git",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Gatsby source plugin which sources data from your local git repository",
   "keywords": [
     "gatsby",
