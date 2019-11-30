@@ -6,13 +6,21 @@
 
 A Gatsby source plugin for sourcing data into your Gatsby application from your local git repository.
 
-<!-- ## Description
+## Description
 
-Include a summary of what this plugin accomplishes. Is there a demo site that shows how this plugin operates? If so, include a link to the deployed demo site and/or its source code here. -->
+This source plugin enables gatsby sites to include meta data about their own git repository at build time. Possible features are:
+
+- Printing the hash of the latest git commit on an about page
+- Including the name of the current git branch (might be useful for canary builds or split deployments)
+- Creating a list of all git authors / contributors
+
+Missing a feature? Please create an issue (or even a pull request).
 
 ## How to install
 
-`npm install --save gatsby-source-local-git`
+```shell
+npm install --save gatsby-source-local-git
+```
 
 <!-- ## Available options (if any) -->
 
@@ -139,10 +147,43 @@ You can query author nodes like the following:
 }
 ```
 
-<!-- ## How to run tests
+<!-- ## How to run tests -->
 
 ## How to develop locally
 
-## How to contribute
+### Clone gatsby default starter and change directories into site folder
+
+```shell
+git clone https://github.com/gatsbyjs/gatsby-starter-default.git && cd gatsby-starter-default
+```
+
+### Add this repository as git submodule
+
+```
+git submodule add https://github.com/PMudra/gatsby-source-local-git.git plugins/gatsby-source-local-git
+```
+
+### Add the plugin to `gatsby-config.js`
+
+See top of readme for an example.
+
+### Start developing the plugin
+
+Just be sure to switch to the right directory depending on the task:
+
+```shell
+cd plugins/gatsby-source-local-git
+npm install
+npm start
+```
+
+See if the plugin is working as expected (in root directory e.g. `gatsby-starter-default`):
+
+```shell
+npm install
+npm start
+```
+
+<!-- ## How to contribute
 
 If you have unanswered questions, would like help with enhancing or debugging the plugin, it is nice to include instructions for people who want to contribute to your plugin. -->
