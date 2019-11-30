@@ -169,7 +169,7 @@ See top of readme for an example.
 
 ### Start developing the plugin
 
-Just be sure to switch to the right directory depending on the task:
+Just be sure to switch to the right directory depending on the task. Working on plugin:
 
 ```shell
 cd plugins/gatsby-source-local-git
@@ -177,7 +177,7 @@ npm install
 npm start
 ```
 
-See if the plugin is working as expected (in root directory e.g. `gatsby-starter-default`):
+See if the plugin is working as expected (in root directory i.e. `gatsby-starter-default`):
 
 ```shell
 npm install
