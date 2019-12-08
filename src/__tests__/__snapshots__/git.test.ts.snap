@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`First commit should match snapshot 1`] = `
+Object {
+  "author": Object {
+    "email": "philipp.mudra@web.de",
+    "id": "Philipp Mudra__philipp.mudra@web.de",
+    "name": "Philipp Mudra",
+  },
+  "body": "",
+  "date": 2019-11-10T18:07:04.000Z,
+  "hash": "c003b915fa82ae86adcebd9f9461bbd215fd52eb",
+  "id": "c003b915fa82ae86adcebd9f9461bbd215fd52eb",
+  "latest": false,
+  "message": "Initial commit",
+  "refs": "",
+}
+`;
+
+exports[`First tag should match snapshot 1`] = `
+Object {
+  "id": "v0.1.2",
+  "latest": false,
+  "name": "v0.1.2",
+}
+`;
