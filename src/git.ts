@@ -69,7 +69,7 @@ const getBranches = async (): Promise<Branch[]> => {
   return Object.values(branches).map(({ name, commit, current }) => ({
     name,
     commit,
-    current: !!current,
+    current,
     id: name,
   }))
 }
