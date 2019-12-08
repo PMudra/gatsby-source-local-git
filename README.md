@@ -1,8 +1,8 @@
 # gatsby-source-local-git
 
-[![npm](https://img.shields.io/npm/v/gatsby-source-local-git?style=flat-square&logo=npm)](https://www.npmjs.com/package/gatsby-source-local-git)
-[![MIT](https://img.shields.io/github/license/pmudra/gatsby-source-local-git?style=flat-square)](https://github.com/PMudra/gatsby-source-local-git/blob/master/LICENSE)
-[![build](https://img.shields.io/github/workflow/status/PMudra/gatsby-source-local-git/Node%20CI?logo=github&style=flat-square)](https://github.com/PMudra/gatsby-source-local-git/actions)
+[![npm](https://img.shields.io/npm/v/gatsby-source-local-git?style=for-the-badge&logo=npm)](https://www.npmjs.com/package/gatsby-source-local-git)
+[![MIT](https://img.shields.io/github/license/pmudra/gatsby-source-local-git?style=for-the-badge)](https://github.com/PMudra/gatsby-source-local-git/blob/master/LICENSE)
+[![build](https://img.shields.io/github/workflow/status/PMudra/gatsby-source-local-git/Node%20CI?logo=github&style=for-the-badge)](https://github.com/PMudra/gatsby-source-local-git/actions)
 
 A Gatsby source plugin for sourcing data into your Gatsby application from your local git repository.
 
