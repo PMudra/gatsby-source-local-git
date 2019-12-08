@@ -10,8 +10,8 @@ A Gatsby source plugin for sourcing data into your Gatsby application from your 
 
 This source plugin enables gatsby sites to include meta data about their own git repository at build time. Possible features are:
 
-- Printing the hash of the latest git commit on an about page
-- Including the name of the current git branch (might be useful for canary builds or split deployments)
+- Printing the hash of the **latest git commit** on an about page
+- Including the name of the **current git branch** (might be useful for canary builds or split deployments)
 - Creating a list of all git authors / contributors
 
 Missing a feature? Please create an issue (or even a pull request).
