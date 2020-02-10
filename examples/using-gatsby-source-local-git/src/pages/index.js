@@ -1,21 +1,63 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
+export const query = graphql`
+  {
+    allGitCommit(limit: 25, sort: { fields: date, order: DESC }) {
+      edges {
+        node {
+          hash
+          message
+          date(fromNow: true)
+        }
+      }
+      totalCount
+    }
+    allGitTag(filter: {}) {
+      edges {
+        node {
+          name
+        }
+      }
+    }
+    allGitBranch {
+      edges {
+        node {
+          name
+          current
+        }
+      }
+    }
+  }
+`
+
+export default ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <h2>Branches:</h2>
+    <ul>
+      {data.allGitBranch.edges.map(({ node: branch }) => (
+        <li key={branch.id} style={{fontWeight: branch.current ? 'bold' : 'normal'}}>{branch.name}</li>
+      ))}
+    </ul>
+    <h2>Tags:</h2>
+    <ul>
+      {data.allGitTag.edges.map(({ node: tag }) => (
+        <li key={tag.id}>{tag.name}</li>
+      ))}
+    </ul>
+    <h2>Commits:</h2>
+      <p>Total: {data.allGitCommit.totalCount}</p>
+    <ul>
+      {data.allGitCommit.edges.map(({ node: commit }) => (
+        <li key={commit.id}>{commit.message} ({commit.date})</li>
+      ))}
+    </ul>
   </Layout>
 )
-
-export default IndexPage
