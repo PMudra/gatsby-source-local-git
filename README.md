@@ -38,7 +38,9 @@ module.exports = {
 }
 ```
 
-You can find a running example here: https://using-gatsby-source-local-git.netlify.com/
+You can find a running example here: https://using-gatsby-source-local-git.netlify.app/
+
+Sources of the example are available [examples/using-gatsby-source-local-git/](examples/using-gatsby-source-local-git/)
 
 ## How to query for data
 
