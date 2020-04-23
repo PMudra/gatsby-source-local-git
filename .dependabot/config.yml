@@ -10,3 +10,7 @@ update_configs:
   - package_manager: "javascript"
     directory: "/examples/using-gatsby-source-local-git"
     update_schedule: "weekly"
+    automerged_updates:
+      - match:
+          dependency_type: "all"
+          update_type: "all"
