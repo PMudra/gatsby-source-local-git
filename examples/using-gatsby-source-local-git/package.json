@@ -7,7 +7,7 @@
   "dependencies": {
     "gatsby": "^2.19.27",
     "gatsby-plugin-manifest": "^2.3.5",
-    "gatsby-plugin-react-helmet": "^3.1.22",
+    "gatsby-plugin-react-helmet": "^3.2.4",
     "gatsby-source-filesystem": "^2.2.4",
     "gatsby-source-local-git": "^0.2.2",
     "prop-types": "^15.7.2",
