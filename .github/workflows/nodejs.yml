@@ -3,10 +3,9 @@ name: Node CI
 on: [push]
 
 jobs:
-  build:
-
+  build-plugin:
+    name: Plugin CI
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
@@ -17,5 +16,22 @@ jobs:
         npm ci
         npm run build
         npm test
+      env:
+        CI: true
+
+  build-example:
+    name: Example CI
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 8
+    - name: npm install, build, and test
+      run: |
+        npm ci
+        npm run build
+        npm test
+      working-directory: ./examples/using-gatsby-source-local-git
       env:
         CI: true
