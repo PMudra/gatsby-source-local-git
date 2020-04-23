@@ -31,7 +31,6 @@ jobs:
       run: |
         npm ci
         npm run build
-        npm test
       working-directory: ./examples/using-gatsby-source-local-git
       env:
         CI: true
