@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `gatsby-source-local-git Example`,
-    description: `Simple example site showing the features of gatsby-source-local-git Gatsby plugin. Based on Gatsby default starter.`
+    title: `gatsby-source-local-git`,
+    description: `Simple example website demonstrating the features of the gatsby-source-local-git Gatsby plugin. Based on Gatsby default starter.`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,8 +11,8 @@ module.exports = {
         name: `using-gatsby-source-local-git`,
         short_name: `local-git`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#239B56`,
+        theme_color: `#239B56`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
