@@ -23,7 +23,7 @@
     "watch:test": "jest --watch"
   },
   "dependencies": {
-    "simple-git": "^1.128.0"
+    "simple-git": "^2.3.0"
   },
   "devDependencies": {
     "@types/jest": "^25.1.3",
