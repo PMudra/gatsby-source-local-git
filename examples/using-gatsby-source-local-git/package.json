@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "^2.23.1",
+    "gatsby": "^2.23.3",
     "gatsby-plugin-manifest": "^2.4.11",
     "gatsby-plugin-react-helmet": "^3.3.3",
     "gatsby-source-filesystem": "^2.3.11",
