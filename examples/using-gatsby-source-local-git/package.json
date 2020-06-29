@@ -6,7 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "gatsby": "^2.23.7",
-    "gatsby-plugin-manifest": "^2.4.12",
+    "gatsby-plugin-manifest": "^2.4.14",
     "gatsby-plugin-react-helmet": "^3.3.4",
     "gatsby-source-filesystem": "^2.3.12",
     "gatsby-source-local-git": "^1.0.0",
