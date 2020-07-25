@@ -23,12 +23,12 @@
     "watch:test": "jest --watch"
   },
   "dependencies": {
-    "simple-git": "^2.3.0"
+    "simple-git": "^2.15.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.0",
+    "@types/jest": "^26.0.7",
     "@types/react-dom": "^16.9.6",
-    "gatsby": "^2.18.7",
+    "gatsby": "^2.24.11",
     "jest": "^25.1.0",
     "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"

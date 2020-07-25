@@ -1,5 +1,5 @@
 import git from "simple-git/promise"
-import { DefaultLogFields } from "simple-git/typings/response"
+import { DefaultLogFields } from "simple-git"
 
 interface Author {
   id: string
@@ -56,7 +56,7 @@ const getCommits = async (): Promise<Commit[]> => {
 const getTags = async (): Promise<Tag[]> => {
   const { all, latest } = await git().tags()
 
-  return all.map(name => ({
+  return all.map((name) => ({
     name,
     id: name,
     latest: name === latest,
