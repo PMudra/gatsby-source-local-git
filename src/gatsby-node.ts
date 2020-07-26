@@ -10,14 +10,52 @@ import {
 } from "./git"
 import { createNodeFactory } from "./gatsby-node-helper"
 
-const sourceNodes = async (
-  helpers: SourceNodesArgs
-) => {
+const sourceNodes = async (helpers: SourceNodesArgs) => {
+  const typeDefs = `
+    type GitCommit implements Node {
+      diff: DiffSummary
+    }
+    type DiffSummary {
+      changed: Int!
+      files: [DiffResultFile!]!
+      insertions: Int!
+      deletions: Int!
+    }
+    interface DiffResultFile {
+      file: String!
+      binary: Boolean!
+    }
+    type DiffResultTextFile implements DiffResultFile {
+      file: String!
+      binary: Boolean!
+      changes: Int!
+      insertions: Int!
+      deletions: Int!
+    }
+    type DiffResultBinaryFile implements DiffResultFile {
+      file: String!
+      binary: Boolean!
+      before: Int!
+      after: Int!
+    }
+  `
+
+  helpers.actions.createTypes(typeDefs)
+
   const createCommitNode = createNodeFactory<Commit>(
     "GitCommit",
     helpers,
-    ({ author, ...commit }, { createNodeId }) => ({
+    ({ author, diff, ...commit }, { createNodeId }) => ({
       ...commit,
+      diff: diff && {
+        ...diff,
+        files: diff.files.map((file) => ({
+          ...file,
+          internal: {
+            type: file.binary ? "DiffResultBinaryFile" : "DiffResultTextFile",
+          },
+        })),
+      },
       author___NODE: createNodeId(author.id),
     })
   )
