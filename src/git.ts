@@ -41,7 +41,7 @@ const getCommits = async (): Promise<Commit[]> => {
   const {
     all,
     latest: { hash: latestHash },
-  } = await git().log<DefaultLogFields>()
+  } = await git().log<DefaultLogFields>({ "--stat": 4096 })
 
   return all.map(({ hash, date, author_email, author_name, ...rest }) => ({
     hash,
