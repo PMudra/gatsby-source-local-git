@@ -9,7 +9,7 @@ Object {
   },
   "body": "",
   "date": 2019-11-10T18:07:04.000Z,
-  "diff": DiffSummary {
+  "diff": Object {
     "changed": 11,
     "deletions": 0,
     "files": Array [
