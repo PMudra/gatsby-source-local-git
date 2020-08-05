@@ -20,7 +20,8 @@
     "watch:build": "npm run build -- --watch",
     "prepack": "npm run test && npm run build",
     "test": "jest --coverage",
-    "watch:test": "jest --watch"
+    "watch:test": "jest --watch",
+    "changelog": "npx keep-a-changelog"
   },
   "dependencies": {
     "simple-git": "^2.15.0"
