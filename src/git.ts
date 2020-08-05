@@ -1,4 +1,4 @@
-import git, { DiffResult } from "simple-git/promise"
+import git from "simple-git/promise"
 import { DefaultLogFields, ListLogLine } from "simple-git"
 
 interface Author {
@@ -37,15 +37,8 @@ const createAuthor = (name: string, email: string): Author => ({
   id: `${name}__${email}`,
 })
 
-const createDiff = (diff: DiffResult): DiffResult => ({
-  ...diff,
-})
-
 const getCommits = async (): Promise<Commit[]> => {
-  const {
-    all,
-    latest: { hash: latestHash },
-  } = await git().log<DefaultLogFields>({ "--stat": 4096 })
+  const { all, latest } = await git().log<DefaultLogFields>({ "--stat": 4096 })
 
   return all.map(
     ({ hash, diff, date, author_email, author_name, ...rest }) => ({
@@ -53,8 +46,9 @@ const getCommits = async (): Promise<Commit[]> => {
       ...rest,
       id: hash,
       date: new Date(date),
-      latest: hash === latestHash,
-      diff: diff && createDiff(diff),
+      latest: hash === latest.hash,
+      // create copy so a plain object is returned
+      diff: diff && { ...diff },
       author: createAuthor(author_name, author_email),
     })
   )

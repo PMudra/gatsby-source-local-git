@@ -9,9 +9,9 @@ import {
   Branch,
 } from "./git"
 import { createNodeFactory } from "./gatsby-node-helper"
+import { DiffResult } from "simple-git/promise"
 
-const sourceNodes = async (helpers: SourceNodesArgs) => {
-  const typeDefs = `
+const typeDefs = `
     type GitCommit implements Node {
       diff: DiffSummary
     }
@@ -40,6 +40,17 @@ const sourceNodes = async (helpers: SourceNodesArgs) => {
     }
   `
 
+const createDiff = ({ files, ...rest }: DiffResult) => ({
+  ...rest,
+  files: files.map((file) => ({
+    ...file,
+    internal: {
+      type: file.binary ? "DiffResultBinaryFile" : "DiffResultTextFile",
+    },
+  })),
+})
+
+const sourceNodes = async (helpers: SourceNodesArgs) => {
   helpers.actions.createTypes(typeDefs)
 
   const createCommitNode = createNodeFactory<Commit>(
@@ -47,15 +58,7 @@ const sourceNodes = async (helpers: SourceNodesArgs) => {
     helpers,
     ({ author, diff, ...commit }, { createNodeId }) => ({
       ...commit,
-      diff: diff && {
-        ...diff,
-        files: diff.files.map((file) => ({
-          ...file,
-          internal: {
-            type: file.binary ? "DiffResultBinaryFile" : "DiffResultTextFile",
-          },
-        })),
-      },
+      diff: diff && createDiff(diff),
       author___NODE: createNodeId(author.id),
     })
   )
