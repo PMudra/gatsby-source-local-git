@@ -38,7 +38,9 @@ const createAuthor = (name: string, email: string): Author => ({
 })
 
 const getCommits = async (): Promise<Commit[]> => {
-  const { all, latest } = await git().log<DefaultLogFields>({ "--stat": 4096 })
+  const { all, latest } = await git().log<DefaultLogFields>({
+    "--stat": "4096",
+  })
 
   return all.map(
     ({ hash, diff, date, author_email, author_name, ...rest }) => ({
