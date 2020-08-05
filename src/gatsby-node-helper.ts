@@ -24,6 +24,8 @@ const createNodeFactory = <T extends Node>(
   helpers: NodePluginArgs,
   preprocessNode: (node: T, helpers: NodePluginArgs) => Node = identity
 ) => (node: T) =>
-    helpers.actions.createNode(prepareNode(preprocessNode(node, helpers), type, helpers) as NodeInput)
+  helpers.actions.createNode(
+    prepareNode(preprocessNode(node, helpers), type, helpers) as NodeInput
+  )
 
 export { createNodeFactory }
