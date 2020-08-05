@@ -56,11 +56,20 @@ You can query commit nodes like the following:
         hash
         message
         body
-        date(fromNow: true)
         refs
+        date
         author {
           name
           email
+        }
+        diff {
+          changed
+          deletions
+          insertions
+          files {
+            file
+            binary
+          }
         }
       }
     }
