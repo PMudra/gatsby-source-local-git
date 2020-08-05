@@ -12,6 +12,11 @@ export const query = graphql`
           hash
           message
           date
+          diff {
+            files {
+              file
+            }
+          }
         }
       }
       totalCount
@@ -105,6 +110,15 @@ export default ({ data }) => (
           <strong>{commit.hash.substring(0, 8)}</strong> (
           {new Date(commit.date).toLocaleString()})<br />
           {commit.message}
+          <br />
+          {commit.diff && "Changed files:"}
+          {commit.diff && (
+            <ul>
+              {commit.diff.files.map(({ file }) => (
+                <li>{file}</li>
+              ))}
+            </ul>
+          )}
         </li>
       ))}
     </ul>
