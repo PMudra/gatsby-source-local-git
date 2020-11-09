@@ -8,7 +8,7 @@
     "gatsby": "^2.24.92",
     "gatsby-plugin-manifest": "^2.5.2",
     "gatsby-plugin-react-helmet": "^3.3.14",
-    "gatsby-source-filesystem": "^2.3.37",
+    "gatsby-source-filesystem": "^2.4.2",
     "gatsby-source-local-git": "^1.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
