@@ -6,17 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.2.0] - Unreleased
+### Added
+- Add `keep-a-changelog` as `devDependencies`.
+
 ### Changed
-- Upgrade `simple-git` to v2.36.0.
+- Upgrade `simple-git` to `v2.36.0`.
 - Upgrade `devDependencies`.
+- Improve readme.
 
 ## [1.1.1] - 2020-08-05
 ### Fixed
-- Read full file names from git log.
+- Read full file names of changed files from git log.
 
 ## 1.1.0 - 2020-08-05
 ### Added
-- Include the files modified in a commit.
+- Include changed files in `Commit` nodes.
 
 [1.2.0]: https://github.com/gatsbyjs/gatsby-starter-default/compare/v1.1.1...HEAD
 [1.1.1]: https://github.com/gatsbyjs/gatsby-starter-default/compare/v1.1.0...v1.1.1
