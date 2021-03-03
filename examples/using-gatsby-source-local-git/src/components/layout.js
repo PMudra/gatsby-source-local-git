@@ -22,14 +22,18 @@ const Layout = ({ children }) => {
       }
       sitePlugin(name: { eq: "gatsby-source-local-git" }) {
         version
+        pluginFilepath
       }
     }
   `)
 
+  const localPluginUsed = !sitePlugin.pluginFilepath.includes("node_modules")
+  const versionSuffix = localPluginUsed ? "(local)" : ""
+
   return (
     <>
       <Header
-        siteTitle={`${site.siteMetadata.title} - v${sitePlugin.version}`}
+        siteTitle={`${site.siteMetadata.title} - v${sitePlugin.version} ${versionSuffix}`}
       />
       <div
         style={{
