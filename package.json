@@ -24,12 +24,12 @@
     "changelog": "npx keep-a-changelog"
   },
   "dependencies": {
-    "simple-git": "^2.15.0"
+    "simple-git": "^2.36.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.7",
     "@types/react-dom": "^17.0.0",
-    "gatsby": "^2.24.11",
+    "gatsby": "^2.32.9",
     "jest": "^25.1.0",
     "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"

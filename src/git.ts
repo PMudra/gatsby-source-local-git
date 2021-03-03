@@ -41,6 +41,7 @@ const getCommits = async (): Promise<Commit[]> => {
   const { all, latest } = await git().log<DefaultLogFields>({
     "--stat": "4096",
   })
+  const latestHash = latest!.hash
 
   return all.map(
     ({ hash, diff, date, author_email, author_name, ...rest }) => ({
@@ -48,7 +49,7 @@ const getCommits = async (): Promise<Commit[]> => {
       ...rest,
       id: hash,
       date: new Date(date),
-      latest: hash === latest.hash,
+      latest: hash === latestHash,
       // create copy so a plain object is returned
       diff: diff && { ...diff },
       author: createAuthor(author_name, author_email),
