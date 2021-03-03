@@ -33,7 +33,7 @@ Sources of the [example](https://using-gatsby-source-local-git.netlify.app/) are
 
 The plugin creates `Commit`, `Tag`, `Branch` and `Author` nodes.
 
-Please be aware that CI platforms might use an optimized strategy to fetch your git repository. Make sure to fetch all history for branches and tags depending on your needs.
+:warning: Please be aware that CI platforms might use an optimized strategy to fetch your git repository. Make sure to fetch all history for branches and tags depending on your needs.
 
 ### Latest commit hash
 
