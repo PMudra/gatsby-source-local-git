@@ -77,14 +77,25 @@ export default ({ data }) => (
     <p>The following information is generated using the plugin.</p>
     <h3>Summary</h3>
     <ul>
-      <li>Author count: {data.allGitAuthor.totalCount}</li>
-      <li>Commit count: {data.allGitCommit.totalCount}</li>
       <li>
-        Commit: {data.gitCommit.hash.substring(0, 8)} (
-        {new Date(data.gitCommit.date).toLocaleString()})
+        Author count: <code>{data.allGitAuthor.totalCount}</code>
       </li>
-      <li>Latest tag: {data.gitTag.name}</li>
-      <li>Current branch: {data.gitBranch.name}</li>
+      <li>
+        Commit count: <code>{data.allGitCommit.totalCount}</code>
+      </li>
+      <li>
+        Commit:{" "}
+        <code>
+          {data.gitCommit.hash.substring(0, 8)} (
+          {new Date(data.gitCommit.date).toLocaleString()})
+        </code>
+      </li>
+      <li>
+        Latest tag: <code>{data.gitTag.name}</code>
+      </li>
+      <li>
+        Current branch: <code>{data.gitBranch.name}</code>
+      </li>
     </ul>
     <h3>Branches</h3>
     <ul>
@@ -93,29 +104,36 @@ export default ({ data }) => (
           key={branch.id}
           style={{ fontWeight: branch.current ? "bold" : "normal" }}
         >
-          {branch.name}
+          <code>{branch.name}</code>
         </li>
       ))}
     </ul>
     <h3>Tags</h3>
     <ul>
       {data.allGitTag.edges.map(({ node: tag }) => (
-        <li key={tag.id}>{tag.name}</li>
+        <li key={tag.id}>
+          <code>{tag.name}</code>
+        </li>
       ))}
     </ul>
     <h3>Latest Commits</h3>
     <ul>
       {data.allGitCommit.edges.map(({ node: commit }) => (
         <li key={commit.id}>
-          <strong>{commit.hash.substring(0, 8)}</strong> (
-          {new Date(commit.date).toLocaleString()})<br />
+          <code>
+            <strong>{commit.hash.substring(0, 8)}</strong> (
+            {new Date(commit.date).toLocaleString()})
+          </code>
+          <br />
           {commit.message}
           <br />
           {commit.diff && "Changed files:"}
           {commit.diff && (
             <ul>
               {commit.diff.files.map(({ file }) => (
-                <li>{file}</li>
+                <li>
+                  <code>{file}</code>
+                </li>
               ))}
             </ul>
           )}
