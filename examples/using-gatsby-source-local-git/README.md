@@ -1,5 +1,7 @@
 # using-gatsby-source-local-git
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0d695d10-14c7-44e3-8fd9-b561762f087b/deploy-status)](https://app.netlify.com/sites/using-gatsby-source-local-git/deploys)
+
 A simple gatsby sample page demonstrating the usage of gatsby-source-local-git plugin.
 
 Hosted on netlify: https://using-gatsby-source-local-git.netlify.com/
@@ -8,6 +10,5 @@ Hosted on netlify: https://using-gatsby-source-local-git.netlify.com/
 
 ```shell
 npm install
-# when running in a docker dev container as root this command might be needed: npm install --unsafe-perm
 npm start
 ```

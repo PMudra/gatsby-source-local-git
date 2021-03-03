@@ -3,7 +3,6 @@
 [![npm](https://img.shields.io/npm/v/gatsby-source-local-git?style=for-the-badge&logo=npm)](https://www.npmjs.com/package/gatsby-source-local-git)
 [![MIT](https://img.shields.io/github/license/pmudra/gatsby-source-local-git?style=for-the-badge)](https://github.com/PMudra/gatsby-source-local-git/blob/master/LICENSE)
 [![build](https://img.shields.io/github/workflow/status/PMudra/gatsby-source-local-git/Node%20CI?logo=github&style=for-the-badge)](https://github.com/PMudra/gatsby-source-local-git/actions)
-[![Netlify](https://img.shields.io/netlify/0d695d10-14c7-44e3-8fd9-b561762f087b?style=for-the-badge&logo=netlify)](https://app.netlify.com/sites/using-gatsby-source-local-git/deploys)
 
 A Gatsby source plugin for sourcing data into your Gatsby application from your local git repository.
 The plugin enables gatsby sites to include meta data about their own git repository at build time.
