@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `gatsby-source-local-git`,
-    description: `Simple example website demonstrating the features of the gatsby-source-local-git Gatsby plugin. Based on Gatsby default starter.`
+    description: `Simple example website demonstrating the features of the gatsby-source-local-git Gatsby plugin. Based on Gatsby default starter.`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -17,7 +17,13 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-source-local-git`
+    {
+      // resolve from node_modules
+      resolve: `gatsby-source-local-git`,
+
+      // resolve dev version from root of repository (don't forget to build)
+      // resolve: require.resolve(`../..`),
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -17,10 +17,10 @@
   "scripts": {
     "start": "npm run watch:build",
     "build": "tsc",
-    "watch:build": "npm run build -- --watch",
+    "build.watch": "npm run build -- --watch",
     "prepack": "npm run test && npm run build",
     "test": "jest --coverage",
-    "watch:test": "jest --watch",
+    "test.watch": "jest --watch",
     "changelog": "npx keep-a-changelog"
   },
   "dependencies": {
