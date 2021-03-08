@@ -9,6 +9,7 @@ export const query = graphql`
     allGitCommit(limit: 10, sort: { fields: date, order: DESC }) {
       edges {
         node {
+          id
           hash
           message
           date
@@ -28,6 +29,7 @@ export const query = graphql`
     allGitTag {
       edges {
         node {
+          id
           name
         }
       }
@@ -38,6 +40,7 @@ export const query = graphql`
     allGitBranch {
       edges {
         node {
+          id
           commit
           name
           current
@@ -53,7 +56,7 @@ export const query = graphql`
   }
 `
 
-export default ({ data }) => (
+const Index = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <h3>Example website</h3>
@@ -130,8 +133,8 @@ export default ({ data }) => (
           {commit.diff && "Changed files:"}
           {commit.diff && (
             <ul>
-              {commit.diff.files.map(({ file }) => (
-                <li>
+              {commit.diff.files.map(({ file }, index) => (
+                <li key={index}>
                   <code>{file}</code>
                 </li>
               ))}
@@ -142,3 +145,5 @@ export default ({ data }) => (
     </ul>
   </Layout>
 )
+
+export default Index
