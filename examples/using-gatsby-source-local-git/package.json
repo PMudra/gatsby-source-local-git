@@ -1,9 +1,8 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "using-gatsby-source-local-git",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Simple example website demonstrating the features of the gatsby-source-local-git Gatsby plugin. Based on Gatsby default starter",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "gatsby": "^2.32.9",
     "gatsby-plugin-manifest": "^2.12.1",
@@ -19,7 +18,7 @@
     "prettier": "^2.2.1"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=12.13.0"
   },
   "keywords": [
     "gatsby"
@@ -31,14 +30,6 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "clean": "gatsby clean"
   }
 }
