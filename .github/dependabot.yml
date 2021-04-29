@@ -1,0 +1,19 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: simple-git
+    versions:
+    - 2.31.0
+    - 2.34.2
+    - 2.35.1
+    - 2.35.2
+- package-ecosystem: npm
+  directory: "/examples/using-gatsby-source-local-git"
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 10
