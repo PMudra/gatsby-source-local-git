@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.3.0] - 2022-03-30
 ### Changed
 - Support Gatsby v4.
 - Update simple-git to 3.5.0.
@@ -35,7 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Include changed files in `Commit` nodes.
 
-[Unreleased]: https://github.com/PMudra/gatsby-source-local-git/compare/v1.2.2...HEAD
+[1.3.0]: https://github.com/PMudra/gatsby-source-local-git/compare/v1.2.2...v1.3.0
 [1.2.2]: https://github.com/PMudra/gatsby-source-local-git/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/PMudra/gatsby-source-local-git/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/PMudra/gatsby-source-local-git/compare/v1.1.1...v1.2.0
