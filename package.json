@@ -20,7 +20,7 @@
     "changelog": "changelog",
     "changelog.release": "changelog --release",
     "prepack": "npm run test && npm run build",
-    "start": "npm run watch:build",
+    "start": "npm run build.watch",
     "test": "jest --coverage",
     "test.watch": "jest --watch"
   },
