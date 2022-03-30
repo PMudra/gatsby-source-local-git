@@ -1,5 +1,4 @@
-import git from "simple-git/promise"
-import { DefaultLogFields, ListLogLine } from "simple-git"
+import git, { DefaultLogFields, ListLogLine } from "simple-git"
 
 interface Author {
   id: string

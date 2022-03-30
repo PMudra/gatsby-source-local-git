@@ -25,7 +25,7 @@
     "test.watch": "jest --watch"
   },
   "dependencies": {
-    "simple-git": "^2.36.0"
+    "simple-git": "^3.5.0"
   },
   "devDependencies": {
     "@types/jest": "26.0.24",
