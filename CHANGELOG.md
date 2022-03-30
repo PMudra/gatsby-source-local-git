@@ -7,8 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- Support Gatsby v4.
 - Update simple-git to 3.5.0.
-- Update dev dependencies.
 
 ## [1.2.2] - 2021-03-08
 ### Fixed
