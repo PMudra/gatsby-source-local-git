@@ -1,5 +1,5 @@
 import { sourceNodes } from "../gatsby-node"
-import { SourceNodesArgs } from "gatsby"
+import type { SourceNodesArgs } from "gatsby"
 
 test("Calling sourceNodes should call createNode method", async () => {
   const createNode = jest.fn()

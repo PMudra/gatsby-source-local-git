@@ -1,4 +1,4 @@
-import { SourceNodesArgs } from "gatsby"
+import type { SourceNodesArgs } from "gatsby"
 import {
   getCommits,
   getTags,
@@ -9,7 +9,7 @@ import {
   Branch,
 } from "./git"
 import { createNodeFactory } from "./gatsby-node-helper"
-import { DiffResult } from "simple-git/promise"
+import type { DiffResult } from "simple-git"
 
 const typeDefs = `
     type GitCommit implements Node {

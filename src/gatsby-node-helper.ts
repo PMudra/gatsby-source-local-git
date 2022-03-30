@@ -1,4 +1,4 @@
-import { NodePluginArgs, NodeInput } from "gatsby"
+import type { NodePluginArgs, NodeInput } from "gatsby"
 
 interface Node {
   id: string
@@ -19,13 +19,15 @@ const prepareNode = <T extends Node>(
 
 const identity = <T>(value: T) => value
 
-const createNodeFactory = <T extends Node>(
-  type: string,
-  helpers: NodePluginArgs,
-  preprocessNode: (node: T, helpers: NodePluginArgs) => Node = identity
-) => (node: T) =>
-  helpers.actions.createNode(
-    prepareNode(preprocessNode(node, helpers), type, helpers) as NodeInput
-  )
+const createNodeFactory =
+  <T extends Node>(
+    type: string,
+    helpers: NodePluginArgs,
+    preprocessNode: (node: T, helpers: NodePluginArgs) => Node = identity
+  ) =>
+  (node: T) =>
+    helpers.actions.createNode(
+      prepareNode(preprocessNode(node, helpers), type, helpers) as NodeInput
+    )
 
 export { createNodeFactory }
