@@ -1,16 +1,25 @@
-import { sourceNodes } from "../gatsby-node"
-import type { SourceNodesArgs } from "gatsby"
+import { sourceNodes, createSchemaCustomization } from "../gatsby-node"
 
-test("Calling sourceNodes should call createNode method", async () => {
+test("Calling sourceNodes should call createNode function", async () => {
   const createNode = jest.fn()
+
   await sourceNodes({
     actions: {
-      createNode: createNode as Function,
-      createTypes: new Function(),
+      createNode,
     },
-    createNodeId: new Function(),
-    createContentDigest: new Function(),
-  } as SourceNodesArgs)
+    createNodeId: () => {},
+    createContentDigest: () => {},
+  } as any)
 
   expect(createNode).toBeCalled()
+})
+
+test("Calling createSchemaCustomization should call createTypes function", async () => {
+  const createTypes = jest.fn()
+
+  createSchemaCustomization({
+    actions: { createTypes },
+  } as any)
+
+  expect(createTypes).toBeCalled()
 })

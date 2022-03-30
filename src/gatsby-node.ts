@@ -1,4 +1,4 @@
-import type { SourceNodesArgs } from "gatsby"
+import type { CreateSchemaCustomizationArgs, SourceNodesArgs } from "gatsby"
 import {
   getCommits,
   getTags,
@@ -11,7 +11,10 @@ import {
 import { createNodeFactory } from "./gatsby-node-helper"
 import type { DiffResult } from "simple-git"
 
-const typeDefs = `
+export const createSchemaCustomization = ({
+  actions,
+}: CreateSchemaCustomizationArgs) => {
+  actions.createTypes(/* GraphQL */ `
     type GitCommit implements Node {
       diff: DiffSummary
     }
@@ -38,7 +41,8 @@ const typeDefs = `
       before: Int!
       after: Int!
     }
-  `
+  `)
+}
 
 const createDiff = ({ files, ...rest }: DiffResult) => ({
   ...rest,
@@ -50,9 +54,7 @@ const createDiff = ({ files, ...rest }: DiffResult) => ({
   })),
 })
 
-const sourceNodes = async (helpers: SourceNodesArgs) => {
-  helpers.actions.createTypes(typeDefs)
-
+export const sourceNodes = async (helpers: SourceNodesArgs) => {
   const createCommitNode = createNodeFactory<Commit>(
     "GitCommit",
     helpers,
@@ -78,5 +80,3 @@ const sourceNodes = async (helpers: SourceNodesArgs) => {
   const branches = await getBranches()
   branches.forEach((branch) => createBranchNode(branch))
 }
-
-export { sourceNodes }
