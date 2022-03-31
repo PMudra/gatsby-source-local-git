@@ -7,30 +7,30 @@ jobs:
     name: Plugin CI
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 16
-    - name: npm install, build, and test
-      run: |
-        npm ci
-        npm run build
-        npm test
-      env:
-        CI: true
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: npm install, build, and test
+        run: |
+          npm ci
+          npm run build
+          npm test
+        env:
+          CI: true
 
   build-example:
     name: Example CI
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 16
-    - name: npm install, build, and test
-      run: |
-        npm ci
-        npm run build
-      working-directory: ./examples/using-gatsby-source-local-git
-      env:
-        CI: true
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: npm install, build, and test
+        run: |
+          npm ci
+          npm run build
+        working-directory: ./examples/using-gatsby-source-local-git
+        env:
+          CI: true
