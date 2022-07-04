@@ -4,7 +4,7 @@
   "description": "Simple example website demonstrating the features of the gatsby-source-local-git Gatsby plugin. Based on Gatsby default starter",
   "version": "0.1.0",
   "dependencies": {
-    "gatsby": "4.11.0",
+    "gatsby": "4.17.2",
     "gatsby-plugin-manifest": "4.11.0",
     "gatsby-plugin-react-helmet": "5.11.0",
     "gatsby-source-filesystem": "4.11.0",
